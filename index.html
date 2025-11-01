@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProgressiveLife</title>
+  <meta name="description" content="Weekly planner with editable timetable, autosave, and simple export.">
+  <link rel="stylesheet" href="pro_style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo_emoji_24.png">
+
+</head>
+<body>
+  <header class="pl-header">
+    <div class="container header-row">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">PL</div>
+        <div class="brand-text">
+          <h1 class="brand-title">ProgressiveLife ❤️<A></A></h1>
+          <p class="brand-subtitle">Weekly Planner</p>
+        </div>
+      </div>
+      <nav class="actions" aria-label="Actions">
+        <button id="btnNewRow" class="btn">เพิ่มแถว➕</button>
+        <button id="btnDeleteRow" class="btn btn-danger" disabled>ลบแถวที่เลือก➖</button>
+        <button id="btnClear" class="btn btn-outline">ล้างข้อมูล🔄</button>
+        <button id="btnExport" class="btn btn-primary">บันทึกเป็น PNG📷</button>
+        <button id="btnPrint" class="btn btn-outline">พิมพ์🖨</button>
+        <button id="btnTheme" class="btn" aria-pressed="false">โหมดมืด🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Week schedule 📊</h2>
+        <div class="panel-tools">
+          <label class="field">
+            <span class="field-label">เริ่มเวลา🕐</span>
+            <select id="startHour" class="field-input" aria-label="ชั่วโมงเริ่ม">
+              <!-- Filled by JS -->
+            </select>
+          </label>
+          <label class="field">
+            <span class="field-label">จำนวนชั่วโมง🕐</span>
+            <select id="hourSpan" class="field-input" aria-label="จำนวนชั่วโมง">
+              <option value="8">8</option>
+              <option value="10">10</option>
+              <option value="12" selected>12</option>
+              <option value="14">14</option>
+              <option value="16">16</option>
+            </select>
+          </label>
+          <button id="btnBuild" class="btn btn-outline">สร้าง/ปรับตาราง📊</button>
+        </div>
+      </div>
+
+      <div class="table-wrap" tabindex="0">
+        <table id="planner" class="planner" aria-label="ตารางแผนงานประจำสัปดาห์">
+          <!-- Built by JS -->
+        </table>
+      </div>
+      <p class="hint">ทริค: ดับเบิลคลิกบนแถวสุดท้ายเพื่อเพิ่มแถวใหม่ • เนื้อหาในช่องถูกบันทึกอัตโนมัติในเบราว์เซอร์</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">เพลงประกอบ🔊</h2>
+      </div>
+      <div class="audio-bar">
+        <audio id="music" preload="none">
+          <source src="Music.mp4" type="audio/mp4">
+          <source src="Music.ogg" type="audio/ogg">
+        </audio>
+        <button id="aPlay" class="btn btn-primary">เล่น ▶</button>
+        <button id="aPause" class="btn">พัก⏸</button>
+        <label class="field compact">
+          <span class="field-label">เสียง</span>
+          <input id="aVolume" type="range" min="0" max="1" step="0.01" value="0.6" class="range" />
+        </label>
+        <button id="aMute" class="btn btn-outline" aria-pressed="false">ปิดเสียง🔇</button>
+        <span id="aStatus" class="muted">พร้อมเล่น</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pl-footer">
+    <div class="container">
+      <small>© <span id="year"></span> การยอมแพ้ไม่ผิดแต่ผิดที่ไม่ลุกขึ้นสู้ You may give up never give in. Rise.</small>
+    </div>
+  </footer>
+
+  <script src="pro_app.js" defer></script>
+</body>
+</html>
